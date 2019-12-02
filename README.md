@@ -3,9 +3,9 @@
 * `./gradlew build`
 ## alias
 * `cd build/libs/`
-* ` alias filetools='java -jar command-service-0.0.1-SNAPSHOT.jar'`
+* ` alias command='java -jar command-service-0.0.1-SNAPSHOT.jar'`
 ## work it!!
-* `filetools --version`
-* `filetools filetools -c test`
+* `command --version`
+* `command filetools -c test`
 
 * reference [sample](https://ksby.hatenablog.com/entry/2019/07/20/092721) 
