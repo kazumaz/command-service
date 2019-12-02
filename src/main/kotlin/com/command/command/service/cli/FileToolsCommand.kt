@@ -40,14 +40,14 @@ class FileToolsCommand : Callable<Int>, IExitCodeExceptionMapper {
     override fun call(): Int? {
         listOf(*this.files!!).forEach { f ->
             try {
-//                if (exclusive!!.isCreate) {
-//                    Files.createFile(Paths.get(f.name))
-//                    println(f.name + " is created.")
-//                } else if (exclusive.isDelete) {
-//                } else if (exclusive.isDelete) {
+                if (exclusive!!.isCreate) {
+                    Files.createFile(Paths.get(f.name))
+                    println(f.name + " is created.")
+                } else if (exclusive.isDelete) {
+                } else if (exclusive.isDelete) {
                     Files.deleteIfExists(Paths.get(f.name))
                     println(f.name + " is deleted.")
-//                }
+                }
             } catch (e: IOException) {
                 throw RuntimeException(e)
             }
