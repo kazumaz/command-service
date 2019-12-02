@@ -47,8 +47,8 @@ class Application(
 }
 
 @CommandLine.Command(
-		name = "fix-aq-tool", mixinStandardHelpOptions = true,
-		versionProvider = CliCommand::class, description = ["utilities for fix-aq-service"]
+		name = "filetools", mixinStandardHelpOptions = true,
+		versionProvider = CliCommand::class, description = ["create/delete file(s) command"]
 )
 
 class CliCommand : Callable<Int>, CommandLine.IExitCodeExceptionMapper, CommandLine.IVersionProvider {
