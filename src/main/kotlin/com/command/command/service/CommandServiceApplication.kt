@@ -15,8 +15,7 @@ import java.util.concurrent.Callable
 
 @SpringBootApplication(exclude = [DataSourceAutoConfiguration::class, KafkaAutoConfiguration::class, WebMvcAutoConfiguration::class])
 class Application(
-		private val fileToolsCommand: FileToolsCommand,
-		private val factory: IFactory
+		private val fileToolsCommand: FileToolsCommand
 ) : ExitCodeExceptionMapper {
 	private var exitCode: Int = 0
 	fun run(args: Array<String>) {
