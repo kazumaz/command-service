@@ -1,5 +1,6 @@
 package com.command.command.service
 
+import com.command.command.service.cli.AsciiCommand
 import com.command.command.service.cli.FileToolsCommand
 import org.springframework.boot.ExitCodeExceptionMapper
 import org.springframework.boot.SpringApplication
@@ -15,13 +16,15 @@ import java.util.concurrent.Callable
 
 @SpringBootApplication(exclude = [DataSourceAutoConfiguration::class, KafkaAutoConfiguration::class, WebMvcAutoConfiguration::class])
 class Application(
-		private val fileToolsCommand: FileToolsCommand
+		private val fileToolsCommand: FileToolsCommand,
+        private val asciiCommand: AsciiCommand
 ) : ExitCodeExceptionMapper {
 	private var exitCode: Int = 0
 	fun run(args: Array<String>) {
 		val cmd = CliCommand()
 		val commandLine = CommandLine(cmd)
 				.addSubcommand(fileToolsCommand)
+                .addSubcommand(asciiCommand)
 		try {
 			val parsed = commandLine.parseArgs(*args)
 			if (parsed.subcommand() == null &&
@@ -46,8 +49,8 @@ class Application(
 }
 
 @CommandLine.Command(
-		name = "filetools", mixinStandardHelpOptions = true,
-		versionProvider = CliCommand::class, description = ["create/delete file(s) command"]
+		name = "command", mixinStandardHelpOptions = true,
+		versionProvider = CliCommand::class, description = ["there is a lot of subcommand!!"]
 )
 
 class CliCommand : Callable<Int>, CommandLine.IExitCodeExceptionMapper, CommandLine.IVersionProvider {
