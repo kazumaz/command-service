@@ -25,10 +25,10 @@ class AsciiCommand : Callable<Int>, IExitCodeExceptionMapper {
     private val exclusive: Exclusive? = null
 
     internal class Exclusive {
-        @CommandLine.Option(names = ["-s", "--sad"], description = ["output sud expression"])
+        @CommandLine.Option(names = ["-s", "--sad"], description = ["output sud expression."])
         var isSad: Boolean = true
 
-        @CommandLine.Option(names = ["-h", "--happy"], description = ["output happy expression"])
+        @CommandLine.Option(names = ["-ha", "--happy"], description = ["output happy expression."])
         var isHappy: Boolean = true
     }
 
